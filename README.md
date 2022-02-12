@@ -37,8 +37,23 @@
   - [ ] Show Tasks in a modern way
 ### what to do
   - [x] create git repo
-  - [ ] Setup Work Environment
+  - [x] Setup Work Environment
     - [x] HTML, CSS, JS
-    - [ ] 
+    - [x] install django
   - [ ] basic fronend interface
-  - 
+
+
+### Commands Used
+```
+$ pip install Django==4.0.2
+$ python -m pip install --upgrade pip
+$ source nodesApp/Scripts/activate
+$ django-admin startproject nodesApp .
+$ python manage.py runserver
+$ python manage.py migrate
+```
+
+### Issues Faced
+- Path issues and pip freeze error
+- python launcher
+- version od python and launcher must match
