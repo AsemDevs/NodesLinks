@@ -31,12 +31,14 @@
       - Node.js
 
 ## Milestones
-  - Front End upload interface
-  - Fetch the data and print them in json format
-  - handle the data to see back visualization
-  - Show Tasks in a modern way
-## what to do
-  - create git repo
-  - Setup Work Environment
-  - basic fronend interface
+  - [ ] Front End upload interface
+  - [ ] Fetch the data and print them in json format
+  - [ ] handle the data to see back visualization
+  - [ ] Show Tasks in a modern way
+### what to do
+  - [x] create git repo
+  - [ ] Setup Work Environment
+    - [x] HTML, CSS, JS
+    - [ ] 
+  - [ ] basic fronend interface
   - 
