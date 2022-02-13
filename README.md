@@ -31,7 +31,7 @@
       - Node.js
 
 ## Milestones
-  - [ ] Front End upload interface
+  - [x] Front End upload interface
   - [ ] Fetch the data and print them in json format
   - [ ] handle the data to see back visualization
   - [ ] Show Tasks in a modern way
@@ -40,7 +40,7 @@
   - [x] Setup Work Environment
     - [x] HTML, CSS, JS
     - [x] install django
-  - [ ] basic fronend interface
+  - [x] basic fronend interface
 
 
 ### Commands Used
@@ -51,6 +51,8 @@ $ source nodesApp/Scripts/activate
 $ django-admin startproject nodesApp .
 $ python manage.py runserver
 $ python manage.py migrate
+$ python manage.py createsuperuser
+$ python manage.py startapp main
 ```
 
 ### Issues Faced
