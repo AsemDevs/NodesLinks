@@ -45,9 +45,10 @@
 
 ### Commands Used
 ```
-$ pip install Django==4.0.2
+$ python -m venv nodesApp
+$ source venv/Scripts/activate
 $ python -m pip install --upgrade pip
-$ source nodesApp/Scripts/activate
+$ pip install Django==4.0.2
 $ django-admin startproject nodesApp .
 $ python manage.py runserver
 $ python manage.py migrate
