@@ -35,16 +35,16 @@
   - [x] Fetch the data and print them
   - [x] handle the data to see back visualization
   - [ ] fix the visualization
-  - [ ] Show Tasks in a modern way
+  - [x] Show Tasks in a modern way
 ### what to do
   - [x] create git repo
   - [x] Setup Work Environment
     - [x] HTML, CSS, JS
     - [x] install django
   - [x] basic fronend interface
-  - [ ] read the uploaded file
-  - [ ] loop through it's content and store the targets in contexts
-  - [ ] pass the context to the html and loop through them
+  - [x] read the uploaded file
+  - [x] loop through it's content and store the targets in contexts
+  - [x] pass the context to the html and loop through them
 
 
 ### Commands Used
