@@ -20,5 +20,5 @@ from nodes import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('results', views.results, name='results')
+    path('results', views.results, name='results'),
 ]

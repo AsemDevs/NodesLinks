@@ -80,13 +80,6 @@ def readfile(filename):
     columns = len(data.axes[1])
 
 
-    with open(filename) as f:
-        reader = csv.reader(f)
-        for i in reader:
-            for j in reader:
-                num_rows = len(i)
-                cols = len(j)
-
 # a script to open and read a csv file in django
 def results(request):
     # prepare the visualization
