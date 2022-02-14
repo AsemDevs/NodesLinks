@@ -19,19 +19,48 @@
             </div>
         {% endif %}
     {% endblock %}
-  <div class="row container" >
+  <div class="row" >
         <div class="container" style="width: 70%; height: 50%; ">
              <canvas id="pie-chart"></canvas>
         </div>
     </div>
-    <div class="container">
+    <button class="btn d-flex m-auto"> <a href="{% url 'index' %}"> GO BACK</a></button>
+
+    <div class="container mt-2">
       <div class="row">
-        <div class="col-md-8"></div>
+        <div class="col-md-4">
+          <h3 class="text-dark">Start Date</h3>
+            {% for id in nodeid %}
+            <div class="card m-1">
+              <div class="card-header">
+                <h3 class="text-primary">Task {{ id }}</h3>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="col-md-4">
+          <h3 class="text-success">Start Date</h3>
+          {% for start in startdate %}
+          <div class="card m-1">
+            <div class="card-header">
+              <h3 class="text-primary">{{ start }}</h3>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+        <div class="col-md-4">
+          <h3 class="text-danger">End Date</h3>
+          {% for endd in enddate %}
+          <div class="card m-1">
+            <div class="card-header">
+              <h3 class="text-primary">{{ endd }}</h3>
+            </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
 </div>
 
-<button class="btn"> <a href="{% url 'index' %}"> GO BACK</a></button>
 
 <script>
 
@@ -43,13 +72,13 @@ var colorArray = [
 	'#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
 	'#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
     new Chart(document.getElementById("pie-chart"), {
-    type: 'pie',
+    type: 'bar',
     data: {
-      labels:  {{ listvalues|safe }},
+      labels:  {{ nodeid|safe }},
       datasets: [{
         label: "",
         backgroundColor: colorArray,
-        data: {{ listvalues|safe }}
+        data: {{ nodeid|safe }}
       }]
     },
     options: {

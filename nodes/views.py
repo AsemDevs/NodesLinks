@@ -17,11 +17,15 @@ def index(request):
 
     context = {}
     global nodeid
+    global startDate
+    global endDate
 
     if request.method == 'POST':
 
         uploaded_file = request.FILES['document']
-        nodeid = request.POST.get('nodeid')
+        nodeid = 'NodeId'
+        startDate = 'StartDate'
+        endDate = 'EndDate'
 
         print(nodeid)
 
@@ -59,14 +63,15 @@ def index(request):
             #project_data.csv
 def readfile(filename):
 
+
+
     #we have to create those in order to be able to access it around
     # use panda to read the file because i can use DATAFRAME to read the file
     #column;culumn2;column
-    global rows,columns,data,my_file,missing_values
+    global rows,columns,data,my_file
      #read the missing data - checking if there is a null
-    missingvalue = ['?', '0', '--']
 
-    my_file = pd.read_csv(filename, sep='[:;,|_]',na_values=missingvalue, engine='python')
+    my_file = pd.read_csv(filename, engine='python')
 
     data = pd.DataFrame(data=my_file, index=None)
     print(data)
@@ -75,53 +80,38 @@ def readfile(filename):
     columns = len(data.axes[1])
 
 
-    null_data = data[data.isnull().any(axis=1)] # find where is the missing data #na null =['x1','x13']
-    missing_values = len(null_data)
-
+    with open(filename) as f:
+        reader = csv.reader(f)
+        for i in reader:
+            for j in reader:
+                num_rows = len(i)
+                cols = len(j)
 
 # a script to open and read a csv file in django
 def results(request):
     # prepare the visualization
-                                #12
-    message = 'I found ' + str(rows) + ' rows and ' + str(columns) + ' columns. Missing data: ' + str(missing_values)
+    message = 'There are ' + str(rows) + ' rows and ' + str(columns) + ' columns.'
     messages.warning(request, message)
 
-    dashboard = [] # ['A11','A11',A'122',]
+    nodeID_dict  = []
+    startDate_dict  = []
+    endDate_dict  = []
     for x in data[nodeid]:
-        dashboard.append(x)
+       nodeID_dict.append(x)
+    for y in data[startDate]:
+       startDate_dict.append(y)
+    for z in data[endDate]:
+       endDate_dict.append(z)
 
-    my_dashboard = dict(Counter(dashboard)) #{'A121': 282, 'A122': 232, 'A124': 154, 'A123': 332}
 
-    print(my_dashboard)
-
-    keys = my_dashboard.keys() # {'A121', 'A122', 'A124', 'A123'}
-    values = my_dashboard.values()
-
-    listkeys = []
-    listvalues = []
-
-    for x in keys:
-        listkeys.append(x)
-
-    for y in values:
-        listvalues.append(y)
-
-    print(listkeys)
-    print(listvalues)
+    print('Node ID', nodeID_dict)
+    print('Start Date', startDate_dict)
+    print('Start Date', endDate_dict)
 
     context = {
-        'listkeys': listkeys,
-        'listvalues': listvalues,
+        'nodeid': nodeID_dict,
+        'startdate': startDate_dict,
+        'enddate': endDate_dict,
     }
 
     return render(request, 'results.html', context)
-
-with open('E:/Learning/Programming/MyLife/Jobs/Nodeslinks/media/adj_W4LxPdN.csv') as f:
-    reader = csv.reader(f)
-    for i in reader:
-        for j in reader:
-            cols = len(j)
-            rows = len(i)
-    
-    print('num of cols', cols)
-    print('num of rows' , rows)
